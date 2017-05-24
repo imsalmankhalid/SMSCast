@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         txtnum = (EditText)findViewById(R.id.txtNum);
         txttotal = (EditText)findViewById(R.id.txtTotal);
         txtmsg = (EditText)findViewById(R.id.txtMsg);
@@ -38,15 +36,6 @@ public class MainActivity extends AppCompatActivity {
         tv_Total = (TextView)findViewById(R.id.Total_num);
         tv_Status = (TextView)findViewById(R.id.txtStatus);
         btn_Send = (Button)findViewById(R.id.button);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         txttotal.addTextChangedListener(mTextEditorWatcher);
         btn_Send.setOnClickListener(new View.OnClickListener() {
@@ -135,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     sendSMS(next_num(i),msg);
                     publishProgress(""); // Calls onProgressUpdate()
-                    Thread.sleep(5000);
+                    Thread.sleep(10000);
                 }
 
             } catch (InterruptedException e) {
